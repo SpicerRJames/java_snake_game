@@ -27,5 +27,22 @@ public class Board extends JPanel implements ActionListener {
 
     //Determnines the speed of the game
     private final int Delay = 140;
+
+    //These two variable from the x and y coordinates of all the snake joints (dots)
+    private final int x[] = new int[allDots];
+    private final int y[] = new int[allDots]; 
+
+    //This method will get the images for the game 
+    private void loadImage() {
+        ImageIcon dotPng =  new ImageIcon("src/resources/dot.png");
+        dot = dotPng.getImage();
+
+        ImageIcon applePng =  new ImageIcon("src/resources/apple.png");
+        apple = applePng.getImage();
+
+        ImageIcon headPng =  new ImageIcon("src/resources/head.png");
+        head = headPng.getImage();
+    }
+
     
 }
