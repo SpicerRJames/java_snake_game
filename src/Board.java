@@ -44,5 +44,20 @@ public class Board extends JPanel implements ActionListener {
         head = headPng.getImage();
     }
 
+    private void initGame() {
+        dots = 3;
+
+        for (int i = 0; i < dots; i++){
+            x[i] = 50 - i * 10;
+            y[i] = 50;
+        }
+
+        locateApple();
+
+        timer = new Timer(DELAY, this);
+        timer.start();
+        
+
+    }
     
 }
