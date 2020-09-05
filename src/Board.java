@@ -32,6 +32,10 @@ public class Board extends JPanel implements ActionListener {
     private final int x[] = new int[allDots];
     private final int y[] = new int[allDots]; 
 
+    private int dots;
+    private int apple_x;
+    private int apple_y;
+
     //This method will get the images for the game 
     private void loadImage() {
         ImageIcon dotPng =  new ImageIcon("src/resources/dot.png");
@@ -44,6 +48,7 @@ public class Board extends JPanel implements ActionListener {
         head = headPng.getImage();
     }
 
+    //This method creates the snake, and will randomly locate a apple on the game board at the start of the game
     private void initGame() {
         dots = 3;
 
@@ -58,6 +63,14 @@ public class Board extends JPanel implements ActionListener {
         timer.start();
         
 
+    }
+
+    //This method checks if the head of the snake hits a apple and will add another dot to the snake
+    private void checkApple() {
+        if((x[0] == apple_x) && (y[0] == apple_y)) {
+            dots++;
+            locateApple();
+        }
     }
     
 }
