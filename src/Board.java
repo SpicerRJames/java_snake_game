@@ -36,6 +36,11 @@ public class Board extends JPanel implements ActionListener {
     private int apple_x;
     private int apple_y;
 
+    public Board() {
+        
+        initBoard();
+    }
+
     //This method will get the images for the game 
     private void loadImage() {
         ImageIcon dotPng =  new ImageIcon("src/resources/dot.png");
@@ -71,6 +76,13 @@ public class Board extends JPanel implements ActionListener {
             dots++;
             locateApple();
         }
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        doDrawing(g);
     }
     
 }
