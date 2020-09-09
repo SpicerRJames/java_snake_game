@@ -14,7 +14,19 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
-    //Defines the size of the board
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+
+    }
+
+
+    // Defines the size of the board
     private final int boardWidth = 300;
     private final int boardHeight = 300;
 
@@ -36,6 +48,19 @@ public class Board extends JPanel implements ActionListener {
     private int apple_x;
     private int apple_y;
 
+   
+   //Variable for controlling the snake's direction in the game.
+    private boolean leftDirection = false;
+    private boolean rightDirection = true;
+    private boolean upDirection = false;
+    private boolean downDirection = false;
+    private boolean inGame = true;
+
+    private Timer timer;
+    private Image dot;
+    private Image apple;
+    private Image head;
+
     public Board() {
         
         initBoard();
@@ -52,6 +77,17 @@ public class Board extends JPanel implements ActionListener {
         ImageIcon headPng =  new ImageIcon("src/resources/head.png");
         head = headPng.getImage();
     }
+
+    //This is the method that will lkocate the apple
+    private void locateApple() {
+
+        int r = (int) (Math.random() * randomApplePosition);
+        apple_x = ((r * dotSize));
+
+        r = (int) (Math.random() * randomApplePosition);
+        apple_y = ((r * dotSize));
+    }
+
 
     //This method creates the snake, and will randomly locate a apple on the game board at the start of the game
     private void initGame() {
